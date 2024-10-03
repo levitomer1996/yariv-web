@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.image-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* This maintains a 1:1 aspect ratio (square) */
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
+  transition: transform 0.3s ease-in-out;
+}
+
+.image-container:hover img {
+  transform: scale(1.1); /* Grows the image by 10% */
+}
+
+.business-description {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.business-description h1 {
+  font-size: 2em;
+  color: #333;
+}
+
+.business-description p {
+  font-size: 1.2em;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.icons-container {
+  margin-top: 20px;
+}
+
+.icons-container .MuiSvgIcon-root {
+  color: #1976d2; /* Customize the color of the icons */
+  transition: color 0.3s ease;
+}
+
+.icons-container .MuiSvgIcon-root:hover {
+  color: #00e676; /* Change color on hover (for example, green for WhatsApp) */
+}
+
+.icons-container h6 {
+  margin-top: 10px;
+  color: #555;
+}
