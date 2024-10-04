@@ -1,8 +1,39 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 
 // Create a CartContext
 export const CartContext = createContext();
 
+// Action types for the reducer
+const ADD_ITEM = "ADD_ITEM";
+const REMOVE_ITEM = "REMOVE_ITEM";
+const CLEAR_CART = "CLEAR_CART";
+const LOAD_CART = "LOAD_CART";
+
+// Reducer function to handle cart state
+const cartReducer = (state, action) => {
+  switch (action.type) {
+    case LOAD_CART:
+      return action.payload;
+    case ADD_ITEM:
+      const existingItem = state.find((item) => item.id === action.payload.id);
+      if (existingItem) {
+        return state.map((item) =>
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+      return [...state, { ...action.payload, quantity: 1 }];
+    case REMOVE_ITEM:
+      return state.filter((item) => item.id !== action.payload);
+    case CLEAR_CART:
+      return [];
+    default:
+      return state;
+  }
+};
+
+// Load the cart from localStorage
 const loadCartFromLocalStorage = () => {
   const savedCart = localStorage.getItem("cartItems");
   if (savedCart) {
@@ -14,18 +45,18 @@ const loadCartFromLocalStorage = () => {
   }
 };
 
-// Save cart to localStorage
+// Save the cart to localStorage
 const saveCartToLocalStorage = (cartItems) => {
   localStorage.setItem("cartItems", JSON.stringify(cartItems)); // Save cart items as a string
 };
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, dispatch] = useReducer(cartReducer, []);
 
   // Load the cart from localStorage when the component mounts
   useEffect(() => {
     const storedCartItems = loadCartFromLocalStorage();
-    setCartItems(storedCartItems); // Initialize cart from localStorage
+    dispatch({ type: LOAD_CART, payload: storedCartItems }); // Initialize cart from localStorage
   }, []);
 
   // Save the cart to localStorage whenever cartItems changes
@@ -35,34 +66,17 @@ export const CartProvider = ({ children }) => {
 
   // Add item to cart
   const addItemToCart = (item) => {
-    setCartItems((prevItems) => {
-      const existingItem = prevItems.find(
-        (cartItem) => cartItem.id === item.id
-      );
-      if (existingItem) {
-        // If item exists, update quantity
-        return prevItems.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
-        );
-      } else {
-        // If item doesn't exist, add it with quantity 1
-        return [...prevItems, { ...item, quantity: 1 }];
-      }
-    });
+    dispatch({ type: ADD_ITEM, payload: item });
   };
 
   // Remove item from cart
   const removeItemFromCart = (itemId) => {
-    setCartItems((prevItems) =>
-      prevItems.filter((cartItem) => cartItem.id !== itemId)
-    );
+    dispatch({ type: REMOVE_ITEM, payload: itemId });
   };
 
   // Clear cart
   const clearCart = () => {
-    setCartItems([]);
+    dispatch({ type: CLEAR_CART });
   };
 
   // Get total items in cart

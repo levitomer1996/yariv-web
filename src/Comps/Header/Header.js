@@ -11,6 +11,7 @@ import React, { useContext } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CartContext } from "../../Context/CartContext";
 import logo from "../../Assets/image.png";
+import { ModalContext } from "../../Context/ModalContext";
 
 const Header = () => {
   // Use a media query to check if the screen is less than 768px (mobile size)
@@ -18,6 +19,7 @@ const Header = () => {
 
   // Use CartContext to get the total number of items in the cart
   const { getTotalItems } = useContext(CartContext);
+  const { showModal } = useContext(ModalContext);
 
   return (
     <>
@@ -72,7 +74,14 @@ const Header = () => {
             </Box>
 
             {/* Cart icon on the right side */}
-            <IconButton edge="end" color="inherit" aria-label="cart">
+            <IconButton
+              edge="end"
+              color="inherit"
+              aria-label="cart"
+              onClick={() => {
+                showModal("cart");
+              }}
+            >
               <Badge badgeContent={getTotalItems()} color="secondary">
                 <ShoppingCartIcon />
               </Badge>
