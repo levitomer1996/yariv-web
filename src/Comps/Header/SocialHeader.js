@@ -22,7 +22,7 @@ const SocialHeader = () => {
       style={{
         backgroundColor: "rgba(0, 0, 0, 0.3)", // Static semi-transparent black
         width: "100%",
-        height: "30%", // Adjust the height as needed for mobile
+        height: "30%", // Adjust the height as needed
       }}
     >
       <Toolbar style={{ justifyContent: "flex-end" }}>
@@ -42,12 +42,22 @@ const SocialHeader = () => {
           </IconButton>
         </a>
 
-        <IconButton color="inherit">
-          <MailIcon style={{ color: "black" }} />
-        </IconButton>
-        <IconButton color="inherit">
-          <PhoneIcon style={{ color: "black" }} />
-        </IconButton>
+        {/* Mail Icon with mailto link */}
+        <a
+          href="mailto:yariv23mj@gmail.com"
+          style={{ color: "inherit" }} // Remove default link styling
+        >
+          <IconButton color="inherit">
+            <MailIcon style={{ color: "black" }} />
+          </IconButton>
+        </a>
+
+        {/* Phone Icon with tel link */}
+        <a href="tel:+972547203674" style={{ color: "inherit" }}>
+          <IconButton color="inherit">
+            <PhoneIcon style={{ color: "black" }} />
+          </IconButton>
+        </a>
       </Toolbar>
     </AppBar>
   );

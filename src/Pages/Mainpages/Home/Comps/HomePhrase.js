@@ -40,10 +40,16 @@ const HomePhrase = () => {
                 alignItems: "center",
               }}
             >
-              <p style={{ fontSize: "2.5rem" }}>
-                הזמינו עכשיו מהקולקציות שלנו זרי פרחים טריים, עציצים, כלי נוי
-                ועוד.. הראו לאהובים שלכם כמה אתם אוהבים אותם כי לפעמים, המילים
-                לא מספיקות
+              <p style={{ fontSize: "1.4rem" }}>
+                ברוכים הבאים ל-PRAZON WOODCRAFT, בו האיכות והיצירתיות נפגשים!
+                אנו מתמחים בבניית מוצרי בית, נוי וריהוט בעבודת יד מעץ מלא
+                ואיכותי, בשילוב של אפוקסי וחומרים חדשניים, המעניקים לכל פריט
+                ייחודיות שאין כדוגמתה. כל מוצר שלנו מיוצר בקפידה, תוך דגש על
+                פרטים מדויקים ושימוש בחומרים הטובים ביותר, כדי להבטיח עמידות
+                ואסתטיקה ברמה גבוהה. בנוסף, אנו מציעים ללקוחותינו את האפשרות
+                לעצב פריטים בהתאמה אישית, כך שתוכלו ליצור ריהוט שמתאים בדיוק
+                לצרכים ולסגנון שלכם. הצטרפו אלינו למסע של יצירה מותאמת אישית,
+                שבו כל פריט מספר סיפור ייחודי ותתמכו בעבודה ישראלית
               </p>
             </div>
           </Grid>
@@ -84,6 +90,7 @@ const HomePhraseMobile = () => {
         position: "relative", // Container for relative positioning
         width: "100%",
         height: "400px", // Fixed height for the image container
+        overflow: "hidden", // Ensure the content does not overflow the container
       }}
     >
       {/* Image */}
@@ -100,20 +107,29 @@ const HomePhraseMobile = () => {
       {/* Text Overlay */}
       <div
         style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)", // Center text over the image
+          position: "absolute", // Position text over the image
+          top: "50%", // Center vertically
+          left: "50%", // Center horizontally
+          transform: "translate(-50%, -50%)", // Adjust position for centering
           color: "white", // White text for visibility
           textAlign: "center", // Center the text
           backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background for better readability
           padding: "1rem", // Padding for the text box
           borderRadius: "8px", // Optional: Rounds the text box
+          width: "90%", // Ensure text doesn't go beyond image edges
+          maxHeight: "90%", // Ensure text fits within the container
+          overflow: "hidden", // Hide overflow text
         }}
       >
-        <p style={{ fontSize: "1.3rem", margin: 0 }}>
-          הזמינו עכשיו מהקולקציות שלנו זרי פרחים טריים, עציצים, כלי נוי ועוד..
-          הראו לאהובים שלכם כמה אתם אוהבים אותם כי לפעמים, המילים לא מספיקות
+        <p style={{ fontSize: "1rem", margin: 0 }}>
+          ברוכים הבאים ל-PRAZON WOODCRAFT, בו האיכות והיצירתיות נפגשים! אנו
+          מתמחים בבניית מוצרי בית, נוי וריהוט בעבודת יד מעץ מלא ואיכותי, בשילוב
+          של אפוקסי וחומרים חדשניים, המעניקים לכל פריט ייחודיות שאין כדוגמתה. כל
+          מוצר שלנו מיוצר בקפידה, תוך דגש על פרטים מדויקים ושימוש בחומרים הטובים
+          ביותר, כדי להבטיח עמידות ואסתטיקה ברמה גבוהה. בנוסף, אנו מציעים
+          ללקוחותינו את האפשרות לעצב פריטים בהתאמה אישית, כך שתוכלו ליצור ריהוט
+          שמתאים בדיוק לצרכים ולסגנון שלכם. הצטרפו אלינו למסע של יצירה מותאמת
+          אישית, שבו כל פריט מספר סיפור ייחודי ותתמכו בעבודה ישראלית
         </p>
       </div>
     </div>

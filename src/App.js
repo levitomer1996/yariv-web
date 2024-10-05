@@ -7,6 +7,8 @@ import HeaderMobile from "./Comps/Header/HeaderMobile";
 import { CartProvider } from "./Context/CartContext";
 import My_Modal from "./Comps/Modal/Modal";
 import { ModalContext, ModalProvider } from "./Context/ModalContext";
+import BottomNavbar from "./Comps/BottomNavBar/BottomNavbar";
+
 function App() {
   return (
     <div className="App">
@@ -16,6 +18,7 @@ function App() {
           <Header />
           <HeaderMobile />
           <Main />
+          <BottomNavbar />
           <My_Modal />
         </ModalProvider>
       </CartProvider>

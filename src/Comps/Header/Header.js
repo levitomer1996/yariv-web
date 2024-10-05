@@ -18,7 +18,6 @@ const Header = () => {
   const isMobile = useMediaQuery("(max-width:768px)");
 
   // Use CartContext to get the total number of items in the cart
-
   const { showModal } = useContext(ModalContext);
   const { getTotalItems } = useContext(CartContext);
 
@@ -34,11 +33,22 @@ const Header = () => {
                   color="inherit"
                   sx={{
                     marginRight: "20px",
-                    fontWeight: "bold", // Bold text
-                    fontSize: "18px", // Larger text
-                    color: "white", // Custom text color
-                    "&:hover": {
-                      color: "lightgray", // Hover effect for text color
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    color: "white",
+                    position: "relative",
+                    "&:hover::after": {
+                      width: "100%",
+                    },
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      width: "0",
+                      height: "2px",
+                      bottom: 0,
+                      left: 0,
+                      backgroundColor: "lightgray",
+                      transition: "width 0.3s ease-in-out",
                     },
                   }}
                 >
@@ -51,11 +61,22 @@ const Header = () => {
                   color="inherit"
                   sx={{
                     marginRight: "20px",
-                    fontWeight: "bold", // Bold text
-                    fontSize: "18px", // Larger text
-                    color: "white", // Custom text color
-                    "&:hover": {
-                      color: "lightgray", // Hover effect for text color
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    color: "white",
+                    position: "relative",
+                    "&:hover::after": {
+                      width: "100%",
+                    },
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      width: "0",
+                      height: "2px",
+                      bottom: 0,
+                      left: 0,
+                      backgroundColor: "lightgray",
+                      transition: "width 0.3s ease-in-out",
                     },
                   }}
                 >
@@ -70,8 +91,19 @@ const Header = () => {
                     fontWeight: "bold",
                     fontSize: "18px",
                     color: "white",
-                    "&:hover": {
-                      color: "lightgray",
+                    position: "relative",
+                    "&:hover::after": {
+                      width: "100%",
+                    },
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      width: "0",
+                      height: "2px",
+                      bottom: 0,
+                      left: 0,
+                      backgroundColor: "lightgray",
+                      transition: "width 0.3s ease-in-out",
                     },
                   }}
                 >

@@ -61,7 +61,7 @@ export default ({ title, list, type }) => {
       >
         {list.map((item, index) => (
           <SwiperSlide key={index}>
-            {renderSlideContent(item, index)}
+            {renderSlideContent(item.img, index)}
           </SwiperSlide>
         ))}
       </Swiper>

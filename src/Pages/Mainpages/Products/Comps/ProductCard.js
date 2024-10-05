@@ -13,7 +13,10 @@ export const ProductCard = ({ id, title, price, image }) => {
   };
 
   return (
-    <Card style={{ width: "18rem", overflow: "hidden" }} className="cont">
+    <Card
+      style={{ width: "18rem", height: "450px", overflow: "hidden" }}
+      className="cont"
+    >
       <div className="image-container">
         <Card.Img
           variant="top"
@@ -23,7 +26,7 @@ export const ProductCard = ({ id, title, price, image }) => {
       </div>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <Card.Text>מחיר: {price}₪</Card.Text>
+        <Card.Text style={{ height: "30px" }}>מחיר: {price}₪</Card.Text>
         {/* Button to add product to the cart */}
         <Button
           variant="primary"

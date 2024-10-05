@@ -15,23 +15,88 @@ import l14 from "../../../../Assets/landpage/l14.jpeg";
 import l15 from "../../../../Assets/landpage/l15.jpeg";
 import l16 from "../../../../Assets/landpage/l16.jpeg";
 
+// Array of objects containing title, price (as int), and image for each photo
 const photosList = [
-  l1,
-  l2,
-  l3,
-  l4,
-  l5,
-  l6,
-  l7,
-  l8,
-  l9,
-  l10,
-  l11,
-  l12,
-  l13,
-  l14,
-  l15,
-  l16,
+  {
+    title: " שעון שידה מעץ זית ישראלי בשילוב אפוקסי בקוטר 18 ס'מ",
+    price: 300, // Price as an integer
+    img: l1,
+  },
+  {
+    title: "שולחן סלון 120 על 70",
+    price: 3200,
+    img: l2,
+  },
+  {
+    title: "מעמד לנרות שבת עם חריטה",
+    price: 250,
+    img: l3,
+  },
+  {
+    title: "בוצ'ר הגשה עם חריטה אישית ",
+    price: 250,
+    img: l4,
+  },
+  {
+    title: "מגש אוכל עם אפשרות לחריטה אישית",
+    price: 420,
+    img: l5,
+  },
+  {
+    title: "מגש אוכל עם אפשרות לחריטה אישית",
+    price: 420,
+    img: l6,
+  },
+  {
+    title: "שולחן סלון 100 על 70 מעץ זית בשילוב אפוקסי",
+    price: 3200,
+    img: l7,
+  },
+  {
+    title: "מעמד לנרות שבת עם חריטה ",
+    price: 250,
+    img: l8,
+  },
+  {
+    title: "בוצ'ר הגשת אוכל בשילוב אפוקסי ",
+    price: 250,
+    img: l9,
+  },
+  {
+    title: "מעמד לטבעות נישואין עם חריטה אישית",
+    price: 100,
+    img: l10,
+  },
+  {
+    title: "בוצ'ר להגשת אוכל",
+    price: 200,
+    img: l11,
+  },
+  {
+    title: "מגש אוכל בשילוב אפוקסי 50 על 28",
+    price: 450,
+    img: l12,
+  },
+  {
+    title: "שולחן סלון בצורה הטבעית של העץ",
+    price: 3000,
+    img: l13,
+  },
+  {
+    title: "מגש אוכל מעץ אגוז בשילוב אפוקסי לבן",
+    price: 300,
+    img: l14,
+  },
+  {
+    title: "מגש אוכל עץ זית בשילוב אפוקסי שחוק",
+    price: 420,
+    img: l15,
+  },
+  {
+    title: "מגש אוכל מעץ זית בשילוב אפוקסי סגול",
+    price: 400,
+    img: l16,
+  },
 ];
 
 export default photosList;

@@ -37,11 +37,11 @@ const Products = () => {
           }}
           spacing={3}
         >
-          {products.map((c) => {
+          {products.map(({ title, price, img }) => {
             return (
               <Grid item>
                 {" "}
-                <ProductCard title="תומר" price={1000} image={c} />
+                <ProductCard title={title} price={price} image={img} />
               </Grid>
             );
           })}
