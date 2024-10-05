@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./ProductCard.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -11,6 +11,7 @@ export const ProductCard = ({ id, title, price, image }) => {
     const product = { id, title, price, image }; // Create the product object to be added to the cart
     addItemToCart(product); // Add the product to the cart
   };
+  const { isInCart, setInCart } = useState(false);
 
   return (
     <Card
@@ -28,16 +29,13 @@ export const ProductCard = ({ id, title, price, image }) => {
         />
       </div>
       <Card.Body>
-        {/* Title with fixed height and multiple lines */}
+        {/* Title with fixed height and ellipsis for long text */}
         <Card.Title
           style={{
-            height: "50px", // Allow the title to wrap for two lines
+            height: "40px", // Fixed height for title
             overflow: "hidden",
-            display: "-webkit-box",
-            WebkitLineClamp: 2, // Limit the title to 2 lines
-            WebkitBoxOrient: "vertical",
             textOverflow: "ellipsis",
-            whiteSpace: "normal", // Allow normal wrapping
+            whiteSpace: "nowrap",
           }}
         >
           {title}
@@ -45,13 +43,15 @@ export const ProductCard = ({ id, title, price, image }) => {
 
         {/* Price with fixed height */}
         <Card.Text style={{ height: "30px", overflow: "hidden" }}>
-          מחיר: {price}₪
+          מחיר: {price}₪<p>{isInCart ? "מוצר בעגלה" : "מוצר בעגלה"}</p>
         </Card.Text>
 
         {/* Button to add product to the cart */}
         <Button
           variant="primary"
-          onClick={handleAddToCart}
+          onClick={() => {
+            handleAddToCart();
+          }}
           style={{ backgroundColor: "black", width: "100%" }} // Ensure button takes full width
         >
           הוסף לעגלה

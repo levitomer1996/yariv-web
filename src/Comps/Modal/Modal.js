@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton"; // Import IconButton
+import CloseIcon from "@mui/icons-material/Close"; // Import CloseIcon
 import Modal from "@mui/material/Modal";
 import { ModalContext } from "../../Context/ModalContext";
 import ModalRenderer from "./ModalRenderer";
@@ -16,10 +16,13 @@ const style = {
   border: "2px solid #000",
   boxShadow: 24,
   p: 4,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
 };
 
 export default function My_Modal() {
-  const { state, showModal, hideModal } = useContext(ModalContext);
+  const { state, hideModal } = useContext(ModalContext); // Destructure hideModal from context
   const { content, open } = state;
 
   return (
@@ -31,6 +34,19 @@ export default function My_Modal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          {/* Close button in the top-right corner */}
+          <IconButton
+            onClick={hideModal}
+            sx={{
+              position: "absolute",
+              top: 8,
+              right: 8,
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+
+          {/* Modal Content */}
           <ModalRenderer content={content} />
         </Box>
       </Modal>

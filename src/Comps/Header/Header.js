@@ -10,7 +10,6 @@ import {
 import React, { useContext } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CartContext from "../../Context/CartContext";
-import logo from "../../Assets/image.png";
 import { ModalContext } from "../../Context/ModalContext";
 
 const Header = () => {
@@ -21,95 +20,50 @@ const Header = () => {
   const { showModal } = useContext(ModalContext);
   const { getTotalItems } = useContext(CartContext);
 
+  // Array of button titles and their respective links
+  const navItems = [
+    { title: "בית", href: "/" },
+    { title: "מוצרים", href: "/products" },
+    { title: "עלינו", href: "/about" },
+    { title: "הזמנה אישית", href: "/personalorder" },
+  ];
+
   return (
     <>
       {!isMobile && ( // Only display the buttons if it's not on mobile
         <AppBar position="static" style={{ backgroundColor: "black" }}>
           <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
             <Box style={{ display: "flex", justifyContent: "center" }}>
-              <div style={{ padding: 20 }}>
-                <Button
-                  href="/"
-                  color="inherit"
-                  sx={{
-                    marginRight: "20px",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    color: "white",
-                    position: "relative",
-                    "&:hover::after": {
-                      width: "100%",
-                    },
-                    "&::after": {
-                      content: '""',
-                      position: "absolute",
-                      width: "0",
-                      height: "2px",
-                      bottom: 0,
-                      left: 0,
-                      backgroundColor: "lightgray",
-                      transition: "width 0.3s ease-in-out",
-                    },
-                  }}
-                >
-                  בית
-                </Button>
-              </div>
-              <div style={{ padding: 20 }}>
-                <Button
-                  href="/products"
-                  color="inherit"
-                  sx={{
-                    marginRight: "20px",
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    color: "white",
-                    position: "relative",
-                    "&:hover::after": {
-                      width: "100%",
-                    },
-                    "&::after": {
-                      content: '""',
-                      position: "absolute",
-                      width: "0",
-                      height: "2px",
-                      bottom: 0,
-                      left: 0,
-                      backgroundColor: "lightgray",
-                      transition: "width 0.3s ease-in-out",
-                    },
-                  }}
-                >
-                  מוצרים
-                </Button>
-              </div>
-              <div style={{ padding: 20 }}>
-                <Button
-                  href="/about"
-                  color="inherit"
-                  sx={{
-                    fontWeight: "bold",
-                    fontSize: "18px",
-                    color: "white",
-                    position: "relative",
-                    "&:hover::after": {
-                      width: "100%",
-                    },
-                    "&::after": {
-                      content: '""',
-                      position: "absolute",
-                      width: "0",
-                      height: "2px",
-                      bottom: 0,
-                      left: 0,
-                      backgroundColor: "lightgray",
-                      transition: "width 0.3s ease-in-out",
-                    },
-                  }}
-                >
-                  עלינו
-                </Button>
-              </div>
+              {navItems.map((item, index) => (
+                <div style={{ padding: 20 }} key={index}>
+                  <Button
+                    href={item.href}
+                    color="inherit"
+                    sx={{
+                      marginRight: "20px",
+                      fontWeight: "bold",
+                      fontSize: "18px",
+                      color: "white",
+                      position: "relative",
+                      "&:hover::after": {
+                        width: "100%",
+                      },
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        width: "0",
+                        height: "2px",
+                        bottom: 0,
+                        left: 0,
+                        backgroundColor: "lightgray",
+                        transition: "width 0.3s ease-in-out",
+                      },
+                    }}
+                  >
+                    {item.title}
+                  </Button>
+                </div>
+              ))}
             </Box>
 
             {/* Cart icon on the right side */}
