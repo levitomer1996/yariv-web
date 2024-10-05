@@ -1,9 +1,11 @@
 import React from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery } from "@mui/material";
 import products from "./Comps/products";
 import { ProductCard } from "./Comps/ProductCard";
 import Margin from "../../../Comps/Margin";
 const Products = () => {
+  const isMobile = useMediaQuery("(max-width:768px)");
+
   return (
     <div className="product_container">
       <Margin top={10} />
@@ -16,11 +18,11 @@ const Products = () => {
         }}
       >
         <Grid item>
-          <p style={{ fontSize: "5rem" }}>המוצרים שלנו</p>
+          <p style={{ fontSize: isMobile ? "2rem" : "5rem" }}>המוצרים שלנו</p>
         </Grid>
         <Grid item>
           {" "}
-          <p style={{ fontSize: "2rem" }}>
+          <p style={{ fontSize: isMobile ? "1.2rem" : "2rem" }}>
             בנוסף למוצרים אפשר להזמין הזמנה אישית
           </p>
         </Grid>

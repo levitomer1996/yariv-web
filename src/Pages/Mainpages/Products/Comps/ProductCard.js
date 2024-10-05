@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./ProductCard.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { CartContext } from "../../../../Context/CartContext"; // Assuming the CartContext is set up
+import CartContext from "../../../../Context/CartContext"; // Assuming the CartContext is set up
 
 export const ProductCard = ({ id, title, price, image }) => {
   const { addItemToCart } = useContext(CartContext); // Get the function to add items to the cart

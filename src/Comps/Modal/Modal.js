@@ -19,7 +19,8 @@ const style = {
 };
 
 export default function My_Modal() {
-  const { open, hideModal, content } = useContext(ModalContext);
+  const { state, showModal, hideModal } = useContext(ModalContext);
+  const { content, open } = state;
 
   return (
     <div>
