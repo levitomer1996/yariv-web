@@ -14,7 +14,10 @@ import l13 from "../../../../Assets/landpage/l13.jpeg";
 import l14 from "../../../../Assets/landpage/l14.jpeg";
 import l15 from "../../../../Assets/landpage/l15.jpeg";
 import l16 from "../../../../Assets/landpage/l16.jpeg";
-
+import l17 from "../../../../Assets/landpage/l17.jpeg.png";
+import l18 from "../../../../Assets/landpage/l18.jpeg";
+import l19 from "../../../../Assets/landpage/l19.jpeg";
+import l20 from "../../../../Assets/landpage/l20.jpg";
 // Array of objects containing title, price (as int), and image for each photo
 const photosList = [
   {
@@ -96,6 +99,21 @@ const photosList = [
     title: "מגש אוכל מעץ זית בשילוב אפוקסי סגול",
     price: 400,
     img: l16,
+  },
+  {
+    title: "מגש אוכל מעץ זית בשילוב אפוקסי סגול",
+    price: 400,
+    img: l18,
+  },
+  {
+    title: "מגש אוכל מעץ זית בשילוב אפוקסי סגול",
+    price: 400,
+    img: l19,
+  },
+  {
+    title: "מגש אוכל מעץ זית בשילוב אפוקסי סגול",
+    price: 400,
+    img: l20,
   },
 ];
 
