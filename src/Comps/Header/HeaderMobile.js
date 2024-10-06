@@ -71,7 +71,15 @@ const HeaderMobile = () => {
               showModal("cart");
             }}
           >
-            <Badge badgeContent={getTotalItems()} color="secondary">
+            <Badge
+              badgeContent={getTotalItems()}
+              sx={{
+                "& .MuiBadge-badge": {
+                  backgroundColor: "#8B4513", // Wooden brown color
+                  color: "white", // Adjust text color inside the badge if needed
+                },
+              }}
+            >
               <ShoppingCartIcon />
             </Badge>
           </IconButton>
@@ -82,7 +90,10 @@ const HeaderMobile = () => {
         <List onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
           {menuItems.map((item, index) => (
             <ListItem button key={index} component="a" href={item.href}>
-              <ListItemText primary={item.text} />
+              <ListItemText
+                primary={item.text}
+                style={{ color: "#8B4513", fontWeight: "bold" }}
+              />
             </ListItem>
           ))}
         </List>

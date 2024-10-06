@@ -33,9 +33,7 @@ export const ProductCard = ({ id, title, price, image }) => {
         <Card.Title
           style={{
             height: "40px", // Fixed height for title
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
+            fontSize: "20px",
           }}
         >
           {title}

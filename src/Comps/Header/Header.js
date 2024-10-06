@@ -11,6 +11,7 @@ import React, { useContext } from "react";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import CartContext from "../../Context/CartContext";
 import { ModalContext } from "../../Context/ModalContext";
+import menuItems from "./menuItems"; // Ensure this path is correct based on your project structure
 
 const Header = () => {
   // Use a media query to check if the screen is less than 768px (mobile size)
@@ -20,24 +21,16 @@ const Header = () => {
   const { showModal } = useContext(ModalContext);
   const { getTotalItems } = useContext(CartContext);
 
-  // Array of button titles and their respective links
-  const navItems = [
-    { title: "בית", href: "/" },
-    { title: "מוצרים", href: "/products" },
-    { title: "עלינו", href: "/about" },
-    { title: "הזמנה אישית", href: "/personalorder" },
-  ];
-
   return (
     <>
       {!isMobile && ( // Only display the buttons if it's not on mobile
         <AppBar position="static" style={{ backgroundColor: "black" }}>
           <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
             <Box style={{ display: "flex", justifyContent: "center" }}>
-              {navItems.map((item, index) => (
-                <div style={{ padding: 20 }} key={index}>
+              {menuItems.map((item, index) => (
+                <div key={index} style={{ padding: 20 }}>
                   <Button
-                    href={item.href}
+                    href={item.link}
                     color="inherit"
                     sx={{
                       marginRight: "20px",
@@ -75,7 +68,15 @@ const Header = () => {
                 showModal("cart");
               }}
             >
-              <Badge badgeContent={getTotalItems()} color="secondary">
+              <Badge
+                badgeContent={getTotalItems()}
+                sx={{
+                  "& .MuiBadge-badge": {
+                    backgroundColor: "#8B4513", // Wooden brown color
+                    color: "white", // Adjust text color inside the badge if needed
+                  },
+                }}
+              >
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

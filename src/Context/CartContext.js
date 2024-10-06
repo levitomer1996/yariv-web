@@ -82,6 +82,14 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  // **New Function** to get total price of all items in the cart
+  const getTotalPrice = () => {
+    return cartState.cartItems.reduce(
+      (total, item) => total + item.price * (item.quantity || 1),
+      0
+    );
+  };
+
   // Initialize cart from localStorage when component mounts
   useEffect(() => {
     initLocalStorage(setCart);
@@ -93,6 +101,7 @@ export const CartProvider = ({ children }) => {
         addItemToCart,
         removeItemFromCart, // Provide the removeItemFromCart function in the context
         getTotalItems,
+        getTotalPrice, // Provide the new getTotalPrice function
         setCart,
         cartState,
       }}

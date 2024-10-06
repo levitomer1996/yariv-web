@@ -8,7 +8,6 @@ const Products = () => {
 
   return (
     <div className="product_container">
-      <Margin top={10} />
       <Grid
         container
         direction="column"

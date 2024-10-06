@@ -1,93 +1,153 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import {
   Paper,
   Typography,
   Grid,
   Box,
-  Divider,
   IconButton,
   Button,
+  useMediaQuery,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close"; // Import the Close icon
 import CartContext from "../../../Context/CartContext";
+import Margin from "../../Margin";
 
 const ModalCart = () => {
-  const { cartState, removeItemFromCart } = useContext(CartContext);
+  const { cartState, removeItemFromCart, getTotalPrice } =
+    useContext(CartContext);
   const { cartItems } = cartState;
 
+  // Correct way to use useState
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [checkoutText, setCheckOutText] = useState(null);
+
+  const isMobile = useMediaQuery("(max-width:768px)"); // Detect if screen is mobile
+
   useEffect(() => {
-    console.log(cartItems);
+    setTotalPrice(getTotalPrice());
+    makeCheckoutText();
   }, [cartItems]);
 
+  //Make the checkout text for whatsapp checkout
+  function makeCheckoutText() {
+    let tempStr = `היי, אשמח לבצע את ההזמנה הכוללת את המצורים הבאים: \n`;
+    for (let i = 0; i < cartItems.length; i++) {
+      tempStr = `${tempStr} \n  -*${cartItems[i].title}* \n `;
+    }
+    setCheckOutText(tempStr);
+  }
+
   return (
-    <div style={{ padding: "1rem" }}>
+    <div style={{ padding: isMobile ? "1rem" : "2rem" }}>
+      {" "}
+      {/* Padding adjustment for mobile */}
       {cartItems.length === 0 ? (
         <Typography variant="h6" align="center">
-          Your cart is empty.
+          העגלה ריקה.
         </Typography>
       ) : (
-        <>
-          {cartItems.map(({ title, price, image, id, quantity }) => (
-            <Paper key={id} sx={{ padding: 2, marginBottom: 2 }}>
-              <Grid container spacing={2} alignItems="center">
-                {/* Image Section */}
-                <Grid item xs={3}>
-                  <Box
-                    component="img"
+        cartItems.map(({ title, price, image, id, quantity }) => {
+          return (
+            <Grid
+              item
+              container
+              display={"flex"}
+              flexDirection={isMobile ? "column" : "row"} // Adjust direction for mobile
+              spacing={3}
+              key={id} // Add key for unique identification
+              sx={{ marginBottom: isMobile ? "1rem" : "2rem" }} // Margin adjustment for mobile
+            >
+              <Grid item xs={12} sm={4} display="flex" justifyContent="center">
+                <Box sx={{ borderColor: "gray" }}>
+                  <img
                     src={image}
-                    alt={title}
-                    sx={{
-                      width: "100%",
-                      height: "auto",
-                      maxHeight: 100, // Set a max height for the image
+                    style={{
+                      width: isMobile ? "100px" : "120px", // Adjust image size for mobile
+                      height: isMobile ? "100px" : "120px",
                       objectFit: "cover",
-                      borderRadius: 1, // Slightly rounded corners for a polished look
                     }}
+                    alt={title}
                   />
-                </Grid>
-
-                {/* Title, Quantity and Price Section */}
-                <Grid item xs={6}>
-                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-                    {title}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Quantity: {quantity}
-                  </Typography>
-                </Grid>
-
-                {/* Price Section */}
-                <Grid item xs={2}>
-                  <Typography variant="body1" sx={{ fontWeight: "bold" }}>
-                    ₪{price}
-                  </Typography>
-                </Grid>
-
-                {/* Remove (X) Button */}
-                <Grid item xs={1}>
-                  <IconButton color="secondary" onClick={() => {}}>
-                    <CloseIcon />
-                  </IconButton>
-                </Grid>
+                </Box>
               </Grid>
-              <Divider sx={{ marginY: 2 }} />
-            </Paper>
-          ))}
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems={isMobile ? "center" : "flex-start"} // Center text on mobile
+              >
+                <Typography
+                  variant={isMobile ? "body1" : "h6"}
+                  sx={{
+                    fontWeight: "bold",
+                    textAlign: isMobile ? "center" : "left",
+                  }} // Text alignment for mobile
+                >
+                  {title}
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                display="flex"
+                justifyContent={isMobile ? "center" : "flex-end"} // Price aligned to center on mobile
+                alignItems="center"
+              >
+                <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                  ₪{price}
+                </Typography>
 
-          {/* Checkout Button */}
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            sx={{ marginTop: 2 }}
-            onClick={() => {
-              // Implement the logic for checkout
-              console.log("Proceed to checkout");
-            }}
-          >
-            Checkout
-          </Button>
-        </>
+                <IconButton
+                  color="secondary"
+                  onClick={() => removeItemFromCart(id)}
+                  sx={{ marginLeft: isMobile ? "0" : "1rem" }} // Adjust margin for mobile
+                >
+                  <CloseIcon />
+                </IconButton>
+              </Grid>
+            </Grid>
+          );
+        })
+      )}
+      <Margin bottom={5} />
+      {cartItems.length === 0 ? null : (
+        <Grid
+          container
+          display={"flex"}
+          flexDirection={"row"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          spacing={3}
+        >
+          <Grid item>
+            <p style={{ fontSize: "1.5rem" }}>מחיר כולל: ₪{totalPrice}</p>
+          </Grid>
+          <Grid item>
+            <a
+              href={`https://wa.me/972547203674?text=${checkoutText}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "inherit", marginRight: "20px" }}
+            >
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+                sx={{
+                  marginTop: 2,
+                  maxWidth: isMobile ? "100%" : "1000px", // Full width on mobile
+                  margin: "0 auto",
+                }}
+              >
+                Checkout
+              </Button>{" "}
+            </a>
+          </Grid>
+        </Grid>
       )}
     </div>
   );
