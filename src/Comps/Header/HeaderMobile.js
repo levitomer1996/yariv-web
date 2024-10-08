@@ -14,6 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"; // Import Shopping Cart icon
 import CartContext from "../../Context/CartContext";
 import { ModalContext } from "../../Context/ModalContext";
+import menuItems from "./menuItems";
 
 const HeaderMobile = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -32,12 +33,7 @@ const HeaderMobile = () => {
   };
 
   // Menu items list for mobile
-  const menuItems = [
-    { text: "בית", href: "/" },
-    { text: "מוצרים", href: "/products" },
-    { text: "עלינו", href: "/about" },
-    { text: "הזמנה אישית", href: "/personalorder" }, // New item for personal orders
-  ];
+  
 
   // Use CartContext to access cart items and modal context
   const { getTotalItems } = useContext(CartContext);
