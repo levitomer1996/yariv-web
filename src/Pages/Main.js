@@ -5,8 +5,8 @@ import Home from "./Mainpages/Home/Home";
 import Products from "./Mainpages/Products/Products";
 import PersonalOrder from "./Mainpages/PersonalOrder/PersonalOrder";
 import CartContext from "../Context/CartContext";
+import About from "./About/About";
 
-const About = () => <div>About</div>;
 const Contact = () => <div>Contact</div>;
 
 const Main = () => {

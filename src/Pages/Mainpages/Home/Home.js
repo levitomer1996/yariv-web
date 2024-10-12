@@ -11,12 +11,14 @@ import c2 from "../../../Assets/cardsphotos/c2.png";
 import HomePhrase from "./Comps/HomePhrase";
 import Swiper from "../../../Comps/Swiper/Swiper";
 import products from "../Products/Comps/products";
-import MakeContact from "./Comps/MakeContact";
+import MakeContact from "../../../Comps/MakeContact/MakeContact";
+
 const Home = () => {
   let cards = [
     { src: c1, content: "Handmade Epoxy & Wood Creations" },
     { src: c2, content: "Crafted with Passion and Precision" },
   ];
+
   return (
     <div className="container">
       <Margin bottom={7} />

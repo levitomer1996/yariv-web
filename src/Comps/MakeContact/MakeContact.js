@@ -12,7 +12,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import { Form, Button, Container } from "react-bootstrap";
 import emailjs from "emailjs-com";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Spinner from "../../../../Comps/Spinner";
+import Spinner from "../Spinner";
 
 const MakeContact = () => {
   const isMobile = useMediaQuery("(max-width:768px)");

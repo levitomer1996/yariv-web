@@ -33,7 +33,6 @@ const HeaderMobile = () => {
   };
 
   // Menu items list for mobile
-  
 
   // Use CartContext to access cart items and modal context
   const { getTotalItems } = useContext(CartContext);
@@ -83,12 +82,18 @@ const HeaderMobile = () => {
       </AppBar>
 
       <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-        <List onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
+        <List>
           {menuItems.map((item, index) => (
-            <ListItem button key={index} component="a" href={item.href}>
+            <ListItem
+              button
+              key={index}
+              component="a"
+              href={item.link}
+              onClick={toggleDrawer(false)} // Close the drawer when clicking a link
+            >
               <ListItemText
-                primary={item.text}
-                style={{ color: "#8B4513", fontWeight: "bold" }}
+                primary={item.title}
+                style={{ color: "black", fontWeight: "bold" }}
               />
             </ListItem>
           ))}

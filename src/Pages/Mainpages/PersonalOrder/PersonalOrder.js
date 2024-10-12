@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, useMediaQuery } from "@mui/material";
+import MakeContact from "../../../Comps/MakeContact/MakeContact";
 
 const PersonalOrder = () => {
   const isMobile = useMediaQuery("(max-width:768px)");
@@ -25,6 +26,9 @@ const PersonalOrder = () => {
           מוצר שאין שני לו, שמעביר את האישיות שלכם בכל פרט ופרט. נשמח ללוות אתכם
           בכל שלב של התהליך ולהפוך כל רעיון למציאות!
         </p>
+      </Grid>
+      <Grid item>
+        <MakeContact />
       </Grid>
     </Grid>
   );
