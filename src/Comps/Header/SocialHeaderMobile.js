@@ -1,10 +1,10 @@
 import React from "react";
 import { AppBar, Toolbar, IconButton } from "@mui/material";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { useMediaQuery } from "@mui/material";
+import { ReactComponent as InstagramIC } from "../../Assets/Icons/instagramICON.svg"; // Import Instagram SVG
+import { ReactComponent as WhatsappIC } from "../../Assets/Icons/WhatsappICON.svg"; // Import WhatsApp SVG
 
 const SocialHeaderMobile = () => {
   const isMobile = useMediaQuery("(max-width:768px)");
@@ -25,7 +25,7 @@ const SocialHeaderMobile = () => {
         }}
       >
         <IconButton color="inherit" size={isMobile ? "small" : "medium"}>
-          <WhatsAppIcon style={{ color: "black" }} />
+          <WhatsappIC width="24" height="24" /> {/* Use custom WhatsApp SVG */}
         </IconButton>
 
         {/* Instagram Icon with redirect */}
@@ -36,7 +36,8 @@ const SocialHeaderMobile = () => {
           style={{ color: "inherit" }} // Inherit color to remove link default color
         >
           <IconButton color="inherit" size={isMobile ? "small" : "medium"}>
-            <InstagramIcon style={{ color: "black" }} />
+            <InstagramIC width="24" height="24" />{" "}
+            {/* Use custom Instagram SVG */}
           </IconButton>
         </a>
 

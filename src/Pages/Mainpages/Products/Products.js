@@ -3,6 +3,7 @@ import { Grid, Typography, useMediaQuery } from "@mui/material";
 import products from "./Comps/products";
 import { ProductCard } from "./Comps/ProductCard";
 import Margin from "../../../Comps/Margin";
+import PageTitle from "../../../Comps/PageTitle";
 const Products = () => {
   const isMobile = useMediaQuery("(max-width:768px)");
 
@@ -17,7 +18,7 @@ const Products = () => {
         }}
       >
         <Grid item>
-          <p style={{ fontSize: isMobile ? "2rem" : "5rem" }}>המוצרים שלנו</p>
+          <PageTitle title="המוצרים שלנו" isMobile={isMobile} />
         </Grid>
         <Grid item style={{ width: "70%" }}>
           {" "}

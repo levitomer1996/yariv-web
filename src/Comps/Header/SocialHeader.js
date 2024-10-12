@@ -1,11 +1,11 @@
 import React from "react";
 import { AppBar, Toolbar, IconButton, useMediaQuery } from "@mui/material";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import MailIcon from "@mui/icons-material/Mail";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { useTheme } from "@mui/material/styles";
 import SocialHeaderMobile from "./SocialHeaderMobile";
+import { ReactComponent as InstagramIC } from "../../Assets/Icons/instagramICON.svg"; // Import Instagram icon
+import { ReactComponent as WhatsappIC } from "../../Assets/Icons/WhatsappICON.svg"; // Import WhatsApp icon
 
 const SocialHeader = () => {
   const theme = useTheme();
@@ -26,10 +26,17 @@ const SocialHeader = () => {
       }}
     >
       <Toolbar style={{ justifyContent: "flex-end" }}>
-        <IconButton color="inherit">
-          <WhatsAppIcon style={{ color: "black" }} />
-        </IconButton>
-
+        <a
+          href="https://wa.me/972547203674?text=Hello, I would like to make a personal order."
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "inherit", marginRight: "20px" }}
+        >
+          <IconButton color="inherit">
+            <WhatsappIC width="24" height="24" />{" "}
+            {/* Using the custom WhatsApp SVG */}
+          </IconButton>
+        </a>
         {/* Instagram Icon with redirect */}
         <a
           href="https://www.instagram.com/prazon_woodcraft/"
@@ -38,7 +45,8 @@ const SocialHeader = () => {
           style={{ color: "inherit" }} // Inherit color to remove link default color
         >
           <IconButton color="inherit">
-            <InstagramIcon style={{ color: "black" }} />
+            <InstagramIC width="24" height="24" />{" "}
+            {/* Using the custom Instagram SVG */}
           </IconButton>
         </a>
 

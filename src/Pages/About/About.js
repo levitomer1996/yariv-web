@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, useMediaQuery } from "@mui/material";
+import PageTitle from "../../Comps/PageTitle";
 
 const About = () => {
   const isMobile = useMediaQuery("(max-width:768px)");
@@ -13,7 +14,7 @@ const About = () => {
     >
       <Grid itme>
         {" "}
-        <p style={{ fontSize: isMobile ? "2rem" : "5rem" }}>עלינו</p>
+        <PageTitle title="עלינו" isMobile={isMobile} />
       </Grid>
       <Grid item style={{ width: isMobile ? "80%" : "60%" }}>
         <p style={{ fontSize: isMobile ? "17px" : "25px" }}>

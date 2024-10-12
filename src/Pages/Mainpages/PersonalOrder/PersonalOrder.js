@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, useMediaQuery } from "@mui/material";
 import MakeContact from "../../../Comps/MakeContact/MakeContact";
+import PageTitle from "../../../Comps/PageTitle";
 
 const PersonalOrder = () => {
   const isMobile = useMediaQuery("(max-width:768px)");
@@ -14,7 +15,7 @@ const PersonalOrder = () => {
     >
       <Grid item>
         {" "}
-        <p style={{ fontSize: isMobile ? "2rem" : "5rem" }}>הזמנה אישית</p>
+        <PageTitle title="הזמנה אישית" isMobile={isMobile} />
       </Grid>
       <Grid item style={{ width: "70%" }}>
         <p style={{ fontSize: isMobile ? "0.76rem" : "1.2rem" }}>
