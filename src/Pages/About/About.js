@@ -12,11 +12,11 @@ const About = () => {
       justifyContent={"center"}
       alignItems={"center"}
     >
-      <Grid itme>
+      <Grid item>
         {" "}
         <PageTitle title="עלינו" isMobile={isMobile} />
       </Grid>
-      <Grid item style={{ width: isMobile ? "80%" : "60%" }}>
+      <Grid item style={{ width: isMobile ? "80%" : "60%", height: "34rem" }}>
         <p style={{ fontSize: isMobile ? "17px" : "25px" }}>
           בזמן מלחמת חרבות ברזל רבות החלטתי שהגיע הזמן להגשים חלום אישי – ליצור
           מוצרים ייחודיים ואיכותיים בעבודת יד לבית, מתוך תשוקה לנגרות, לאומנות

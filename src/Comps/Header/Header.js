@@ -24,7 +24,14 @@ const Header = () => {
   return (
     <>
       {!isMobile && ( // Only display the buttons if it's not on mobile
-        <AppBar position="static" style={{ backgroundColor: "black" }}>
+        <AppBar
+          position="sticky" // Make the AppBar sticky
+          style={{
+            backgroundColor: "black",
+            top: 0, // Ensure it's at the top
+            zIndex: 1100, // zIndex to ensure it stays above other content
+          }}
+        >
           <Toolbar style={{ display: "flex", justifyContent: "space-between" }}>
             <Box style={{ display: "flex", justifyContent: "center" }}>
               {menuItems.map((item, index) => (

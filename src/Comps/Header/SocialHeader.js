@@ -22,10 +22,18 @@ const SocialHeader = () => {
       style={{
         backgroundColor: "rgba(0, 0, 0, 0.3)", // Static semi-transparent black
         width: "100%",
-        height: "30%", // Adjust the height as needed
+        height: "30%",
+        justifyContent: "flex-start", // Adjust the height as needed
       }}
     >
-      <Toolbar style={{ justifyContent: "flex-end" }}>
+      <Toolbar
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "flex-end",
+        }}
+      >
         <a
           href="https://wa.me/972547203674?text=Hello, I would like to make a personal order."
           target="_blank"

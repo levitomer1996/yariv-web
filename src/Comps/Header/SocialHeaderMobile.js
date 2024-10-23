@@ -24,10 +24,17 @@ const SocialHeaderMobile = () => {
           padding: isMobile ? "0 10px" : "0",
         }}
       >
-        <IconButton color="inherit" size={isMobile ? "small" : "medium"}>
-          <WhatsappIC width="24" height="24" /> {/* Use custom WhatsApp SVG */}
-        </IconButton>
-
+        <a
+          href="https://wa.me/972547203674?text=Hello"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "inherit", marginRight: "20px" }}
+        >
+          <IconButton color="inherit" size={isMobile ? "small" : "medium"}>
+            <WhatsappIC width="24" height="24" />{" "}
+            {/* Use custom WhatsApp SVG */}
+          </IconButton>
+        </a>
         {/* Instagram Icon with redirect */}
         <a
           href="https://www.instagram.com/prazon_woodcraft/"
