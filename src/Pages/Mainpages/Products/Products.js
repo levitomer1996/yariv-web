@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid, Typography, useMediaQuery } from "@mui/material";
 import products from "./Comps/products";
 import { ProductCard } from "./Comps/ProductCard";
 import Margin from "../../../Comps/Margin";
 import PageTitle from "../../../Comps/PageTitle";
+import CartContext from "../../../Context/CartContext";
 const Products = () => {
   const isMobile = useMediaQuery("(max-width:768px)");
-
+  const { cartState } = useContext(CartContext);
+const { cartItems} = cartState;
   return (
     <div className="product_container">
       <Grid
@@ -53,6 +55,7 @@ const Products = () => {
                   image={img}
                   key={id}
                   id={id}
+                  isInCart={cartItems.some(product => product.id === id)}
                 />
               </Grid>
             );

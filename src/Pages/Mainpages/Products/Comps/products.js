@@ -126,13 +126,13 @@ const photosList = [
   {
     id: 18,
     title: "מגש אוכל מעץ זית בשילוב אפוקסי סגול",
-    price: 400,
+    price: null,
     img: l19,
   },
   {
     id: 19,
     title: "מגש אוכל מעץ זית בשילוב אפוקסי סגול",
-    price: 400,
+    price: null,
     img: l20,
   },
 ];
